@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "../i18n.jsx";
 import "../style/index.css";
@@ -23,7 +23,24 @@ var Error = React.lazy(() => import("./error.jsx"));
 
 function App() {
   const [localAppearance, setLocalAppearance] = useLocalAppearance();
+  const [auth, setAuth] = React.useState(false)
+  React.useEffect(() => { 
+    function doAuth() {
+      const localPass = localStorage.getItem('metpass')
+      const pass = localPass || prompt('Password: ')
 
+      if (pass == 'ablajdfiasljfcalcjoi1289') {
+        localStorage.setItem('metpass', pass)
+        setAuth(true)
+      } else if (localPass) {
+        localStorage.removeItem('metpass')
+        doAuth()
+      } else {
+        doAuth()
+      }
+    }
+    doAuth()
+  }, [])
   var echoPattern = ['3', 'k', 'h', '0'];
   var echoCurrent = 0;
   
@@ -50,6 +67,7 @@ function App() {
 
   return (
     <>
+    {auth && <>
       <ObfuscateLayout />
       <Background />
       <Routes>
@@ -163,7 +181,7 @@ function App() {
         />
       </Routes>
       <NotificationsMain />
-    </>
+    </>}</>
   );
 }
 
