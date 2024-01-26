@@ -13,7 +13,7 @@ export function getSearchEngine() {
       return "https://search.brave.com/search?q=";
     default:
     case "Google":
-      return "https://www.google.com/search?a=";
+      return "https://www.google.com/search?q=";
   }
 }
 
