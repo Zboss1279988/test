@@ -8,6 +8,7 @@ import SettingsLayout from "../SettingsLayout.jsx";
 import { ObfuscateLayout } from "../components/obfuscate.jsx";
 import { NotificationsMain, Notifications } from "../components/notifications.jsx"
 import { useLocalAppearance } from "../settings.jsx";
+import Tab from "./settings/tab.jsx";
 
 var Home = React.lazy(() => import("./home.jsx"));
 var SettingsAppearance = React.lazy(() => import("./settings/appearance.jsx"));
@@ -29,7 +30,7 @@ function App() {
       const localPass = localStorage.getItem('metpass')
       const pass = localPass || prompt('Password: ')
 
-      if (pass == 'ablajdfiasljfcalcjoi12891') {
+      if (pass == 'abc') {
         localStorage.setItem('metpass', pass)
         setAuth(true)
       } else if (localPass) {

@@ -10,7 +10,7 @@ import chalk from "chalk";
 import block from "./blocklist/block.json" assert { type: "json" };
 
 const httpServer = http.createServer();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8180;
 
 // Run the Bare server in the /bare/ namespace. This will prevent conflicts between the static files and the bare server.
 const bareServer = createBareServer("/bare/", {

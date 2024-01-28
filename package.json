@@ -20,6 +20,7 @@
     "i18next": "^22.4.13",
     "i18next-fs-backend": "^2.1.1",
     "i18next-http-backend": "^2.2.0",
+    "million": "^2.6.4",
     "random-seed": "^0.3.0",
     "react-i18next": "^12.2.0",
     "react-router-dom": "^6.9.0",
